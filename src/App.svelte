@@ -21,7 +21,7 @@
       answerA: "Maradona",
       answerB: "Messi",
       votesA: 9,
-      votesB: 65535,
+      votesB: 15,
     },
   ];
   const handleAdd = (e) => {
