@@ -14,32 +14,8 @@
   };
 
   // polls functionality
-  let polls = [
-    {
-      id: 1,
-      question: "Maradona or Messi?",
-      answerA: "Maradona",
-      answerB: "Messi",
-      votesA: 9,
-      votesB: 15,
-    },
-  ];
   const handleAdd = (e) => {
-    const poll = e.detail;
-    polls = [poll, ...polls];
     activeItem = "Current Polls";
-  };
-  const handleVote = (e) => {
-    const { id, option } = e.detail;
-    let auxPolls = [...polls];
-    let votedPoll = auxPolls.find((poll) => poll.id == id);
-    if (option === "a") {
-      votedPoll.votesA++;
-    } else if (option === "b") {
-      votedPoll.votesB++;
-    }
-
-    polls = auxPolls;
   };
 </script>
 
@@ -48,7 +24,7 @@
 <main>
   <Tabs {activeItem} {items} on:tabChange={tabChange} />
   {#if activeItem === "Current Polls"}
-    <PollList {polls} on:vote={handleVote} />
+    <PollList />
   {:else if activeItem === "Add New Poll"}
     <CreatePollForm on:add={handleAdd} />
   {/if}
